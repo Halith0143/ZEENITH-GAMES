@@ -20,9 +20,6 @@ const gameOverOverlay = $("gameOverOverlay");
 let GAME_WIDTH = 900;
 let GAME_HEIGHT = 650;
 
-canvas.width = GAME_WIDTH;
-canvas.height = GAME_HEIGHT;
-
 // Game state
 let running = false;
 let paused = false;
@@ -65,7 +62,7 @@ const levels = {
 // ---------------- RESPONSIVE GAME SIZE ----------------
 
 function resizeGame() {
-    const mobile = window.matchMedia("(max-width: 600px)").matches;
+    const mobile = window.innerWidth <= 600;
 
     const newWidth = mobile ? 390 : 900;
     const newHeight = mobile ? 693 : 650;
@@ -232,8 +229,7 @@ window.addEventListener("keydown", event => {
     const key = event.key.toLowerCase();
 
     if (
-        ["arrowup", "arrowdown", "arrowleft", "arrowright", " "]
-            .includes(key)
+        ["arrowup", "arrowdown", "arrowleft", "arrowright", " "].includes(key)
     ) {
         event.preventDefault();
     }
@@ -255,6 +251,9 @@ window.addEventListener("keyup", event => {
 });
 
 window.addEventListener("blur", clearKeys);
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) clearKeys();
+});
 
 function clearKeys() {
     Object.keys(keys).forEach(key => {
@@ -268,10 +267,25 @@ function clearKeys() {
 
 // ---------------- MOBILE TOUCH CONTROLS ----------------
 
+// Prevent browser gestures on the control area
+const mobileControls = document.querySelector(".mobile-controls");
+
+if (mobileControls) {
+    mobileControls.style.touchAction = "none";
+    mobileControls.style.userSelect = "none";
+    mobileControls.style.webkitUserSelect = "none";
+}
+
 document.querySelectorAll(".mobile-controls button").forEach(button => {
     const key = button.dataset.key;
 
-    button.addEventListener("pointerdown", event => {
+    if (!key) return;
+
+    button.style.touchAction = "none";
+    button.style.userSelect = "none";
+    button.style.webkitUserSelect = "none";
+
+    function pressButton(event) {
         event.preventDefault();
 
         if (!running || paused) return;
@@ -284,16 +298,27 @@ document.querySelectorAll(".mobile-controls button").forEach(button => {
         } catch (error) {
             // Pointer capture is optional.
         }
-    });
+    }
 
     function releaseButton(event) {
         event.preventDefault();
+
         keys[key] = false;
         button.classList.remove("pressed");
     }
 
-    button.addEventListener("pointerup", releaseButton);
-    button.addEventListener("pointercancel", releaseButton);
+    button.addEventListener("pointerdown", pressButton, {
+        passive: false
+    });
+
+    button.addEventListener("pointerup", releaseButton, {
+        passive: false
+    });
+
+    button.addEventListener("pointercancel", releaseButton, {
+        passive: false
+    });
+
     button.addEventListener("lostpointercapture", () => {
         keys[key] = false;
         button.classList.remove("pressed");
