@@ -1,0 +1,608 @@
+
+/* =================================
+   ZEENITH GAMES - MAIN STYLES
+================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --gold: #d4af37;
+    --blue: #00d9ff;
+    --dark: #05070d;
+    --white: #f4f5f8;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    padding: 0 22px;
+    background:
+        radial-gradient(ellipse at 50% 35%, #142036 0%, #080b13 45%, #030407 100%);
+    color: var(--white);
+    font-family: "Segoe UI", Arial, sans-serif;
+    text-align: center;
+}
+
+/* TOP BAR */
+
+.topbar {
+    max-width: 1250px;
+    margin: auto;
+    padding: 25px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d4af3740;
+}
+
+.brand {
+    color: var(--gold);
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.brand span {
+    color: white;
+}
+
+.edition {
+    color: var(--blue);
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+/* MAIN */
+
+main {
+    min-height: calc(100vh - 125px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 0;
+}
+
+.screen {
+    width: 100%;
+    max-width: 950px;
+}
+
+/* HOME SCREEN */
+
+.hero {
+    padding: 30px 10px;
+}
+
+.eyebrow {
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: clamp(42px, 8vw, 90px);
+    font-weight: 1000;
+    letter-spacing: 5px;
+    color: white;
+    text-shadow: 0 0 25px #00d9ff55;
+}
+
+h1 span,
+h2 span {
+    color: var(--gold);
+}
+
+h2 {
+    font-size: clamp(25px, 5vw, 42px);
+    letter-spacing: 2px;
+}
+
+.description {
+    max-width: 520px;
+    margin: 20px auto;
+    color: #aeb8c9;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.ship-art {
+    margin: 30px auto;
+    font-size: 110px;
+    filter: drop-shadow(0 0 25px var(--blue));
+    animation: floatShip 3s ease-in-out infinite;
+}
+
+@keyframes floatShip {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* BUTTONS */
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    user-select: none;
+}
+
+.main-btn {
+    min-width: 210px;
+    padding: 16px 25px;
+    margin: 15px 8px;
+    border: 1px solid var(--gold);
+    border-radius: 5px;
+    background: linear-gradient(120deg, #f1d779, #b58a19);
+    color: #080808;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    box-shadow: 0 0 25px #d4af3740;
+    transition: 0.2s;
+}
+
+.main-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 35px #d4af3790;
+}
+
+.main-btn span {
+    margin-left: 12px;
+}
+
+.secondary-btn {
+    padding: 12px 20px;
+    border: 1px solid #627083;
+    border-radius: 5px;
+    background: transparent;
+    color: #cbd5e1;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.secondary-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+.control-hint,
+.desktop-hint {
+    margin-top: 25px;
+    color: #7e8da3;
+    font-size: 11px;
+    letter-spacing: 2px;
+    line-height: 2;
+}
+
+/* DIFFICULTY SCREEN */
+
+.panel {
+    width: 100%;
+    max-width: 680px;
+    margin: auto;
+    padding: 40px 25px;
+    background: linear-gradient(145deg, #111a29, #080b12);
+    border: 1px solid #d4af3760;
+    border-radius: 16px;
+    box-shadow: 0 0 40px #00000080;
+}
+
+.difficulty-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 30px 0;
+}
+
+.difficulty-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 25px 10px;
+    border: 1px solid #344052;
+    border-radius: 10px;
+    background: #080d17;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.difficulty-card input {
+    accent-color: var(--gold);
+}
+
+.difficulty-card.selected,
+.difficulty-card:has(input:checked) {
+    border-color: var(--gold);
+    background: #2b2412;
+    box-shadow: 0 0 20px #d4af3730;
+}
+
+.difficulty-name {
+    color: var(--gold);
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.difficulty-card small {
+    color: #9ba7b8;
+}
+
+/* GAME SCREEN */
+
+.game-screen {
+    max-width: 1000px;
+}
+
+.game-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.game-heading h2 {
+    font-size: clamp(17px, 3vw, 27px);
+}
+
+.game-heading .eyebrow {
+    margin-bottom: 5px;
+    font-size: 9px;
+}
+
+/* HUD */
+
+.hud {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.hud-item {
+    padding: 12px;
+    background: #111927;
+    border: 1px solid #d4af3750;
+    border-radius: 8px;
+}
+
+.hud-item small {
+    display: block;
+    color: #8997aa;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.hud-item strong {
+    color: var(--gold);
+    font-size: 21px;
+}
+
+/* GAME CANVAS */
+
+.canvas-wrap {
+    width: min(900px, 100%);
+    aspect-ratio: 900 / 650;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 1;
+    min-height: 0;
+    margin: 0 auto;
+}
+
+#gameCanvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* PAUSE AND GAME OVER */
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #02040af0;
+}
+
+.overlay h2 {
+    color: white;
+    font-size: clamp(25px, 6vw, 45px);
+}
+
+.overlay p {
+    color: #cbd5e1;
+    font-size: 18px;
+}
+
+.overlay strong {
+    color: var(--gold);
+}
+
+/* FOOTER */
+
+footer {
+    padding: 18px 5px;
+    color: #68758a;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* =================================
+   LAPTOP / DESKTOP
+================================= */
+
+@media (min-width: 701px) {
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        padding: 0 22px;
+    }
+
+    .topbar {
+        width: 100%;
+        flex-shrink: 0;
+        padding: 10px 30px;
+    }
+
+    main {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 15px;
+    }
+
+    .screen {
+        width: 100%;
+        max-height: 100%;
+    }
+
+    .game-screen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .game-heading,
+    .hud,
+    .desktop-hint {
+        width: min(900px, 100%);
+        flex-shrink: 0;
+        margin: 0;
+    }
+
+    .canvas-wrap {
+        width: min(900px, 100%);
+        max-height: 65vh;
+        aspect-ratio: 900 / 650;
+        flex-shrink: 1;
+        min-height: 0;
+    }
+
+    footer {
+        flex-shrink: 0;
+        padding: 8px;
+    }
+}
+
+/* =================================
+   TABLET
+================================= */
+
+@media (min-width: 601px) and (max-width: 700px) {
+
+    body {
+        padding: 0 12px;
+    }
+
+    .canvas-wrap {
+        width: 100%;
+        aspect-ratio: 900 / 650;
+    }
+
+    #gameCanvas {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* =================================
+   MOBILE PORTRAIT
+================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 0 10px;
+        overflow-x: hidden;
+        min-height: 100vh;
+    }
+
+    .topbar {
+        padding: 12px 5px;
+    }
+
+    .brand {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+
+    .edition {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    main {
+        width: 100%;
+        min-height: calc(100vh - 90px);
+        padding: 12px 0;
+    }
+
+    .screen {
+        width: 100%;
+    }
+
+    .hero {
+        padding: 25px 5px;
+    }
+
+    h1 {
+        font-size: clamp(34px, 10vw, 48px);
+        letter-spacing: 2px;
+    }
+
+    .eyebrow {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .description {
+        font-size: 13px;
+        margin: 15px auto;
+    }
+
+    .ship-art {
+        font-size: 65px;
+        margin: 20px auto;
+    }
+
+    .main-btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .panel {
+        padding: 25px 12px;
+    }
+
+    .difficulty-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 20px 0;
+    }
+
+    .difficulty-card {
+        padding: 14px 8px;
+        gap: 6px;
+    }
+
+    .difficulty-name {
+        font-size: 15px;
+    }
+
+    .difficulty-card small {
+        font-size: 10px;
+    }
+
+    .game-heading {
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 10px;
+    }
+
+    .game-heading h2 {
+        font-size: 17px;
+    }
+
+    .game-heading .secondary-btn {
+        padding: 9px 10px;
+        font-size: 11px;
+    }
+
+    .hud {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 5px;
+        margin-bottom: 8px;
+    }
+
+    .hud-item {
+        padding: 8px 3px;
+        min-width: 0;
+        text-align: center;
+    }
+
+    .hud-item small {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .hud-item strong {
+        font-size: 14px;
+    }
+
+    /* Portrait display area.
+       JavaScript must also support portrait game coordinates. */
+
+    .canvas-wrap {
+        width: 100%;
+        max-width: 420px;
+        aspect-ratio: 9 / 16;
+        height: auto;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    #gameCanvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .desktop-hint {
+        display: none;
+    }
+
+    footer {
+        padding: 12px 5px;
+        font-size: 8px;
+        text-align: center;
+    }
+
+    .overlay h2 {
+        font-size: 28px;
+    }
+
+    .overlay p {
+        font-size: 15px;
+    }
+}

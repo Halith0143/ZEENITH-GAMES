@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#05070d">
+    <title>ZEENITH GAMES | Space Shooter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand">HALITH <span>GAMES</span></div>
+    <div class="edition">ARCADE EDITION</div>
+</header>
+
+<main>
+    <!-- HOME -->
+    <section id="homeScreen" class="screen home-screen">
+        <div class="hero">
+            <p class="eyebrow">WELCOME TO THE FUTURE</p>
+            <h1>SPACE <span>SHOOTER</span></h1>
+            <p class="description">
+                Defend the galaxy. Destroy the enemies.
+                Become the ultimate space warrior.
+            </p>
+            <div class="ship-art">🚀</div>
+            <button id="startBtn" class="main-btn">START GAME <span>➜</span></button>
+            <p class="control-hint">MOVE: ARROW KEYS / WASD &nbsp; • &nbsp; FIRE: SPACEBAR</p>
+        </div>
+    </section>
+
+    <!-- DIFFICULTY -->
+    <section id="difficultyScreen" class="screen" hidden>
+        <div class="panel">
+            <p class="eyebrow">MISSION CONFIGURATION</p>
+            <h2>SELECT <span>DIFFICULTY</span></h2>
+            <p class="description">Choose your battle level.</p>
+
+            <div class="difficulty-options">
+                <label class="difficulty-card">
+                    <input type="radio" name="difficulty" value="slow">
+                    <span class="difficulty-name">SLOW</span>
+                    <small>Beginner mission</small>
+                </label>
+
+                <label class="difficulty-card selected">
+                    <input type="radio" name="difficulty" value="medium" checked>
+                    <span class="difficulty-name">MEDIUM</span>
+                    <small>Balanced mission</small>
+                </label>
+
+                <label class="difficulty-card">
+                    <input type="radio" name="difficulty" value="hard">
+                    <span class="difficulty-name">HARD</span>
+                    <small>Extreme mission</small>
+                </label>
+            </div>
+
+            <button id="playBtn" class="main-btn">LET'S PLAY <span>➜</span></button>
+            <button id="backBtn" class="secondary-btn">BACK</button>
+        </div>
+    </section>
+
+    <!-- GAME -->
+    <section id="gameScreen" class="screen game-screen" hidden>
+        <div class="game-heading">
+            <div>
+                <p class="eyebrow">MISSION IN PROGRESS</p>
+                <h2>ZEENITH <span>SPACE BATTLE</span></h2>
+            </div>
+            <button id="homeBtn" class="secondary-btn">EXIT</button>
+        </div>
+
+       <div class="hud">
+    <div class="hud-item">
+        <small>SCORE</small>
+        <strong id="score">0</strong>
+    </div>
+
+    <div class="hud-item">
+        <small>LIVES</small>
+        <strong id="health">❤️❤️❤️</strong>
+    </div>
+
+    <div class="hud-item">
+        <small>LEVEL</small>
+        <strong id="level">MEDIUM</strong>
+    </div>
+</div>
+        </div>
+
+        <div class="canvas-wrap">
+            <canvas id="gameCanvas" width="900" height="650"></canvas>
+
+            <div id="pauseOverlay" class="overlay" hidden>
+                <h2>GAME <span>PAUSED</span></h2>
+                <p>Take a breath, warrior.</p>
+                <button id="resumeBtn" class="main-btn">RESUME</button>
+                <button id="pauseMenuBtn" class="secondary-btn">MAIN MENU</button>
+            </div>
+
+            <div id="gameOverOverlay" class="overlay" hidden>
+                <p class="eyebrow">MISSION COMPLETE?</p>
+                <h2>MISSION <span>FAILED</span></h2>
+                <p>FINAL SCORE: <strong id="finalScore">0</strong></p>
+                <button id="retryBtn" class="main-btn">TRY AGAIN</button>
+                <button id="menuBtn" class="secondary-btn">MAIN MENU</button>
+            </div>
+        </div>
+
+        <p class="desktop-hint">
+            MOVE: ARROW KEYS / WASD &nbsp; | &nbsp;
+            FIRE: SPACEBAR &nbsp; | &nbsp; PAUSE: ESC
+        </p>
+    </section>
+</main>
+
+<footer>
+    <p>ZEENITH GAMES © 2026 | BUILT FOR THE NEXT GENERATION</p>
+</footer>
+
+<script src="game.js"></script>
+</body>
+</html>
