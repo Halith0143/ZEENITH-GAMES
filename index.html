@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#05070d">
+    <title>ZEENITH GAMES | Space Shooter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand">ZEENITH <span>GAMES</span></div>
+    <div class="edition">ARCADE EDITION</div>
+</header>
+
+<main>
+    <!-- HOME SCREEN -->
+    <section id="homeScreen" class="screen home-screen">
+        <div class="hero">
+            <p class="eyebrow">WELCOME TO THE FUTURE</p>
+            <h1>SPACE <span>SHOOTER</span></h1>
+            <p class="description">
+                Defend the galaxy. Destroy the enemy fleet.
+                Become the ultimate space warrior.
+            </p>
+            <div class="ship-art">🚀</div>
+            <button id="startBtn" class="gold-btn">START GAME</button>
+            <p class="hint">ARROW KEYS / WASD TO MOVE · SPACE TO FIRE</p>
+        </div>
+    </section>
+
+    <!-- DIFFICULTY SCREEN -->
+    <section id="difficultyScreen" class="screen" hidden>
+        <div class="panel">
+            <p class="eyebrow">PREPARE FOR BATTLE</p>
+            <h2>SELECT DIFFICULTY</h2>
+
+            <div class="difficulty-list">
+                <label class="difficulty-card">
+                    <input type="radio" name="difficulty" value="slow">
+                    <span class="difficulty-name">SLOW</span>
+                    <span class="difficulty-info">Beginner friendly</span>
+                </label>
+
+                <label class="difficulty-card selected">
+                    <input type="radio" name="difficulty" value="medium" checked>
+                    <span class="difficulty-name">MEDIUM</span>
+                    <span class="difficulty-info">Balanced challenge</span>
+                </label>
+
+                <label class="difficulty-card">
+                    <input type="radio" name="difficulty" value="hard">
+                    <span class="difficulty-name">HARD</span>
+                    <span class="difficulty-info">Extreme battle</span>
+                </label>
+            </div>
+
+            <div class="button-row">
+                <button id="backBtn" class="dark-btn">BACK</button>
+                <button id="playBtn" class="gold-btn">PLAY NOW</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- GAME SCREEN -->
+    <section id="gameScreen" class="screen game-screen" hidden>
+        <div class="hud">
+            <div class="hud-item">
+                <span class="hud-label">SCORE</span>
+                <strong id="score">0</strong>
+            </div>
+            <div class="hud-item">
+                <span class="hud-label">LIVES</span>
+                <strong id="health">❤️❤️❤️</strong>
+            </div>
+            <div class="hud-item">
+                <span class="hud-label">LEVEL</span>
+                <strong id="level">MEDIUM</strong>
+            </div>
+            <button id="menuBtn" class="small-btn">MENU</button>
+        </div>
+
+        <div class="canvas-wrap">
+            <canvas id="gameCanvas" width="900" height="650"></canvas>
+
+            <div id="pauseOverlay" class="overlay" hidden>
+                <div class="overlay-box">
+                    <h2>GAME PAUSED</h2>
+                    <button id="resumeBtn" class="gold-btn">RESUME</button>
+                    <button id="pauseMenuBtn" class="dark-btn">MAIN MENU</button>
+                </div>
+            </div>
+
+            <div id="gameOverOverlay" class="overlay" hidden>
+                <div class="overlay-box">
+                    <h2>GAME OVER</h2>
+                    <p>FINAL SCORE</p>
+                    <strong id="finalScore">0</strong>
+                    <button id="retryBtn" class="gold-btn">PLAY AGAIN</button>
+                    <button id="homeBtn" class="dark-btn">MAIN MENU</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOBILE TOUCH CONTROLS -->
+        <div class="mobile-controls">
+            <div class="direction-pad">
+                <button class="control-btn up-btn" data-key="arrowup" aria-label="Move up">▲</button>
+                <div class="middle-controls">
+                    <button class="control-btn" data-key="arrowleft" aria-label="Move left">◀</button>
+                    <button class="control-btn" data-key="arrowdown" aria-label="Move down">▼</button>
+                    <button class="control-btn" data-key="arrowright" aria-label="Move right">▶</button>
+                </div>
+            </div>
+
+            <button class="fire-btn" data-key=" " aria-label="Fire">FIRE</button>
+        </div>
+
+        <p class="mobile-hint">Hold direction buttons to move · Hold FIRE to shoot</p>
+    </section>
+</main>
+
+<footer>
+    <span>© 2026 ZEENITH GAMES</span>
+    <span>BUILT FOR THE FUTURE</span>
+</footer>
+
+<script src="game.js"></script>
+</body>
+</html>
